@@ -21,15 +21,15 @@ const firebaseConfig = {
 };
 
 
-// admin.initializeApp({
-//   credential: admin.credential.cert(firebaseConfig),
-//   storageBucket: "ikarus-34sd.firebasestorage.app",
-// });
-const serviceAccount = require("./firebase-auth.json")
 admin.initializeApp({
-  credential: admin.credential.cert(serviceAccount),
+  credential: admin.credential.cert(firebaseConfig),
   storageBucket: "ikarus-34sd.firebasestorage.app",
 });
+// const serviceAccount = require("./firebase-auth.json")
+// admin.initializeApp({
+//   credential: admin.credential.cert(serviceAccount),
+//   storageBucket: "ikarus-34sd.firebasestorage.app",
+// });
 
 const db = admin.firestore();
 const bucket = admin.storage().bucket();
