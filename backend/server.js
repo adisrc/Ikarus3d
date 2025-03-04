@@ -45,7 +45,7 @@ app.get("/test-firebase", async (req, res) => {
     }
   });
 
-// Fetch all models
+// get3dmodels
 app.get("/models", async (req, res) => {
   try {
     const modelsRef = db.collection("models");
@@ -57,14 +57,12 @@ app.get("/models", async (req, res) => {
     res.status(500).json({ error: "Failed to fetch models" });
   }
 });
-
-// Upload route to handle .glb file uploads
+//upload 3d models from this route
 app.post("/upload", upload.single("modelFile"), async (req, res) => {
   try {
     if (!req.file || !req.body.name) {
       return res.status(400).json({ error: "Model file and name are required" });
-    }
-
+    } 
     const file = req.file;
     const fileName = `models/${Date.now()}-${file.originalname}`;
     const fileUpload = bucket.file(fileName);

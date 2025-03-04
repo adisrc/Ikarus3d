@@ -5,7 +5,7 @@ import UploadForm from "./components/UploadForm";
 function App() {
   return (
     <Router>
-      <div className="min-h-screen bg-gray-900 text-white">
+      <div className="">
         <Routes>
           <Route path="/" element={<ModelViewer />} />
           <Route path="/upload" element={<UploadForm/>} />
