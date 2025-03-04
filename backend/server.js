@@ -6,7 +6,14 @@ const dotenv = require("dotenv");
 const multer = require("multer");
 
 dotenv.config();
-
+app.use(
+  cors({
+    origin:  "https://ikarus3dmodels.vercel.app",
+    credentials: true,
+    methods: "GET,POST,PUT,DELETE,OPTIONS",
+    allowedHeaders: "Content-Type,Authorization",
+  })
+);
 // Initialize Firebase
 const firebaseConfig = {
   type: process.env.FIREBASE_TYPE,
@@ -38,14 +45,7 @@ const storage = multer.memoryStorage();
 const upload = multer({ storage });
 const PORT = process.env.PORT || 5000;
 
-app.use(
-  cors({
-    origin:  "https://ikarus3dmodels.vercel.app",
-    credentials: true,
-    methods: "GET,POST,PUT,DELETE,OPTIONS",
-    allowedHeaders: "Content-Type,Authorization",
-  })
-);
+
 
 app.get("/test-firebase", async (req, res) => {
     try {
