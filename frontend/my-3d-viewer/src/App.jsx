@@ -19,7 +19,9 @@
 
 
 import React from "react";
-import ModelViewer from "./components/ModelViewer";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import UploadForm from "./components/UploadForm";
+import Home from "./pages/Home";
 
 // const modelUrl ="/models/air.glb"
 
@@ -30,10 +32,11 @@ export default function App() {
     <Router>
       <div className="">
         <Routes>
-          <Route path="/" element={<ModelViewer />} />
+          <Route path="/" element={<Home/>} />
           <Route path="/upload" element={<UploadForm/>} />
         </Routes>
       </div>
     </Router>
+    // <ModelViewer modelUrl={modelUrl}/>
   );
 }
