@@ -42,8 +42,8 @@ const Home = () => {
 
   return (
     <div className="p-4"> 
-    <Link className="border-2 border-black" to={"/upload"} >Upload</Link>
-      <h1 className="text-2xl font-bold text-white mb-4">3D Model Gallery</h1>
+    <Link className="border-2 border-black rounded-full px-2" to={"/upload"} >Upload</Link>
+      <h1 className="text-2xl font-bold mb-4 text-black">3D Model Gallery</h1>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {models.length > 0 ? (
           models.map((model) => (
