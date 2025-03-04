@@ -18,7 +18,10 @@ const Home = () => {
         const modelFiles = [
           { name: "Air Jordan", file: "air.glb", desc: "A 3D model of a Shoe" },
           { name: "Nike Air", file: "nikeair.glb", desc: "A futuristic shoe" },
+          { name: "Nike One", file: "nikeone.glb", desc: "A modern shoe" },
+          { name: "True Blue", file: "trueblue.glb", desc: "A modern shoe" },
           { name: "Jordan", file: "jordan.glb", desc: "A modern shoe" }
+
         ];
     
         // Map to the correct format
