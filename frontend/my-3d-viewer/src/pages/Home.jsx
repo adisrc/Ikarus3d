@@ -5,40 +5,40 @@ import { Link } from "react-router-dom";
 
 const Home = () => {
   const [models, setModels] = useState([]);
-//   useEffect(() => {
-    
-//     const fetchModels = async () => {
-//       try {
-//         const response = await axios.get("http://localhost:4000/models");
-//         setModels(response.data);
-//       } catch (error) {
-//         console.error("Error fetching models:", error);
-//       }
-//     };
-
-//     fetchModels();
-//   }, []);
-
   useEffect(() => {
-    // Define the models folder path (files inside /public/models)
-    const modelsFolder = "/models";
+    
+    const fetchModels = async () => {
+      try {
+        const response = await axios.get("https://ikarus3d-backend.vercel.app/models");
+        setModels(response.data);
+      } catch (error) {
+        console.error("Error fetching models:", error);
+      }
+    };
 
-    // List of model files (manually added since public files are static)
-    const modelFiles = [
-      { name: "Air Jordan", file: "air.glb", desc: "A 3D model of a Shoe" },
-      { name: "Nike Air", file: "nikeair.glb", desc: "A futuristic shoe" },
-      { name: "Jordan", file: "jordan.glb", desc: "A modern shoe" }
-    ];
-
-    // Map to the correct format
-    const loadedModels = modelFiles.map(model => ({
-      name: model.name,
-      desc: model.desc,
-      url: `${modelsFolder}/${model.file}`
-    }));
-
-    setModels(loadedModels);
+    fetchModels();
   }, []);
+
+  // useEffect(() => {
+  //   // Define the models folder path (files inside /public/models)
+  //   const modelsFolder = "/models";
+
+  //   // List of model files (manually added since public files are static)
+  //   const modelFiles = [
+  //     { name: "Air Jordan", file: "air.glb", desc: "A 3D model of a Shoe" },
+  //     { name: "Nike Air", file: "nikeair.glb", desc: "A futuristic shoe" },
+  //     { name: "Jordan", file: "jordan.glb", desc: "A modern shoe" }
+  //   ];
+
+  //   // Map to the correct format
+  //   const loadedModels = modelFiles.map(model => ({
+  //     name: model.name,
+  //     desc: model.desc,
+  //     url: `${modelsFolder}/${model.file}`
+  //   }));
+
+  //   setModels(loadedModels);
+  // }, []);
 
   return (
     <div className="p-4"> 
