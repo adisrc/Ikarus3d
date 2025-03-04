@@ -20,15 +20,16 @@ const firebaseConfig = {
   client_x509_cert_url: process.env.FIREBASE_CLIENT_X509_CERT_URL,
 };
 
+
+// admin.initializeApp({
+//   credential: admin.credential.cert(firebaseConfig),
+//   storageBucket: "ikarus-34sd.firebasestorage.app",
+// });
+const serviceAccount = require("./firebase-auth.json")
 admin.initializeApp({
-  credential: admin.credential.cert(firebaseConfig),
+  credential: admin.credential.cert(serviceAccount),
   storageBucket: "ikarus-34sd.firebasestorage.app",
 });
-// admin.initializeApp({
-//   credential: admin.credential.cert(serviceAccount),
-//   storageBucket: "ikarus-34sd.firebasestorage.app",
- 
-// });
 
 const db = admin.firestore();
 const bucket = admin.storage().bucket();
@@ -39,7 +40,7 @@ const PORT = process.env.PORT || 5000;
 
 app.use(
     cors({
-      origin: "*",
+      origin: "https://ikarus3dmodels.vercel.app",
       methods: "GET,POST,PUT,DELETE",
       allowedHeaders: "Content-Type,Authorization",
     })
