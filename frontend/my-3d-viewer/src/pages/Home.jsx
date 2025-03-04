@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import ModelViewer from "../components/ModelViewer";
+import { Link } from "react-router-dom";
 
 const Home = () => {
   const [models, setModels] = useState([]);
@@ -41,6 +42,7 @@ const Home = () => {
 
   return (
     <div className="p-4"> 
+    <Link className="border-2 border-black" to={"/upload"} >Upload</Link>
       <h1 className="text-2xl font-bold text-white mb-4">3D Model Gallery</h1>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {models.length > 0 ? (
