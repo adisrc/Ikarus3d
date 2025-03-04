@@ -4,18 +4,39 @@ import ModelViewer from "../components/ModelViewer";
 
 const Home = () => {
   const [models, setModels] = useState([]);
-  useEffect(() => {
+//   useEffect(() => {
     
-    const fetchModels = async () => {
-      try {
-        const response = await axios.get("http://localhost:4000/models");
-        setModels(response.data);
-      } catch (error) {
-        console.error("Error fetching models:", error);
-      }
-    };
+//     const fetchModels = async () => {
+//       try {
+//         const response = await axios.get("http://localhost:4000/models");
+//         setModels(response.data);
+//       } catch (error) {
+//         console.error("Error fetching models:", error);
+//       }
+//     };
 
-    fetchModels();
+//     fetchModels();
+//   }, []);
+
+  useEffect(() => {
+    // Define the models folder path (files inside /public/models)
+    const modelsFolder = "/models";
+
+    // List of model files (manually added since public files are static)
+    const modelFiles = [
+      { name: "Air Jordan", file: "air.glb", desc: "A 3D model of a Shoe" },
+      { name: "Nike Air", file: "nikeair.glb", desc: "A futuristic shoe" },
+      { name: "Jordan", file: "jordan.glb", desc: "A modern shoe" }
+    ];
+
+    // Map to the correct format
+    const loadedModels = modelFiles.map(model => ({
+      name: model.name,
+      desc: model.desc,
+      url: `${modelsFolder}/${model.file}`
+    }));
+
+    setModels(loadedModels);
   }, []);
 
   return (
@@ -24,7 +45,7 @@ const Home = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {models.length > 0 ? (
           models.map((model) => (
-            <div key={model.id} className="border p-4 rounded-lg bg-gray-900">
+            <div key={model.name} className="border p-4 rounded-lg bg-gray-900">
               <h2 className="text-lg font-semibold text-white">{model.name}</h2>
               <ModelViewer modelUrl={model.url} />
               

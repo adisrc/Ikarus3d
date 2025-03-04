@@ -21,7 +21,7 @@ const ModelViewer = ({ modelUrl }) => {
         <div className="absolute text-white text-lg">Loading Model...</div>
       )}
 
-      <Canvas shadows camera={{ position: [0, 2, 5], fov: 50 }}>
+      <Canvas shadows camera={{ position: [0, 0.5, 2], fov: 50 }}>
         <ambientLight intensity={0.5} />
         <directionalLight position={[5, 5, 5]} intensity={1.2} castShadow />
         <pointLight position={[-5, -5, -5]} intensity={0.5} />
