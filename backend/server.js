@@ -96,11 +96,12 @@ app.post("/upload", upload.single("modelFile"), async (req, res) => {
         action: "read",
         expires: "03-09-2030",
       });
+      const publicUrl = `https://firebasestorage.googleapis.com/v0/b/ikarus-34sd.firebasestorage.app/o/${encodeURIComponent(fileName)}?alt=media`;
 
       const newModel = {
         name: req.body.name,
         description: req.body.description || "",
-        url,
+        url:publicUrl,
         uploadDate: new Date().toISOString(),
       };
 
