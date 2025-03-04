@@ -27,7 +27,6 @@ const modelUrl ='https://storage.googleapis.com/ikarus-34sd.firebasestorage.app/
 
 export default function App() {
   return (
-    <>
     <Router>
       <div className="">
         <Routes>
@@ -36,9 +35,5 @@ export default function App() {
         </Routes>
       </div>
     </Router>
-    <div className="">
-      <h1 className="text-3xl font-bold mb-4">3D Model Viewer</h1>
-      <ModelViewer modelUrl={modelUrl} />
-    </div></>
   );
 }
