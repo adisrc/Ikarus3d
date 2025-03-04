@@ -13,6 +13,22 @@ const Home = () => {
         setModels(response.data);
       } catch (error) {
         console.error("Error fetching models:", error);
+            const modelsFolder = "/models";
+
+        const modelFiles = [
+          { name: "Air Jordan", file: "air.glb", desc: "A 3D model of a Shoe" },
+          { name: "Nike Air", file: "nikeair.glb", desc: "A futuristic shoe" },
+          { name: "Jordan", file: "jordan.glb", desc: "A modern shoe" }
+        ];
+    
+        // Map to the correct format
+        const loadedModels = modelFiles.map(model => ({
+          name: model.name,
+          desc: model.desc,
+          url: `${modelsFolder}/${model.file}`
+        }));
+    
+        setModels(loadedModels);
       }
     };
 
@@ -24,20 +40,20 @@ const Home = () => {
   //   const modelsFolder = "/models";
 
   //   // List of model files (manually added since public files are static)
-  //   const modelFiles = [
-  //     { name: "Air Jordan", file: "air.glb", desc: "A 3D model of a Shoe" },
-  //     { name: "Nike Air", file: "nikeair.glb", desc: "A futuristic shoe" },
-  //     { name: "Jordan", file: "jordan.glb", desc: "A modern shoe" }
-  //   ];
+    // const modelFiles = [
+    //   { name: "Air Jordan", file: "air.glb", desc: "A 3D model of a Shoe" },
+    //   { name: "Nike Air", file: "nikeair.glb", desc: "A futuristic shoe" },
+    //   { name: "Jordan", file: "jordan.glb", desc: "A modern shoe" }
+    // ];
 
-  //   // Map to the correct format
-  //   const loadedModels = modelFiles.map(model => ({
-  //     name: model.name,
-  //     desc: model.desc,
-  //     url: `${modelsFolder}/${model.file}`
-  //   }));
+    // // Map to the correct format
+    // const loadedModels = modelFiles.map(model => ({
+    //   name: model.name,
+    //   desc: model.desc,
+    //   url: `${modelsFolder}/${model.file}`
+    // }));
 
-  //   setModels(loadedModels);
+    // setModels(loadedModels);
   // }, []);
 
   return (
