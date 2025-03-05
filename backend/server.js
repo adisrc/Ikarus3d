@@ -11,28 +11,9 @@ const app = express(); // ✅ Initialize express first
 
 // ✅ CORS Middleware
 app.use(
-  cors({
-    origin: "https://ikarus3dmodels.vercel.app",
-    credentials: true,
-    methods: "GET,POST,PUT,DELETE,OPTIONS",
-    allowedHeaders: "Content-Type,Authorization",
-  })
+  cors("https://ikarus3dmodels.vercel.app")
 );
-app.options("*", cors()); // ✅ Handle preflight
 
-// ✅ Ensure proper CORS headers in responses
-app.use((req, res, next) => {
-  res.header("Access-Control-Allow-Origin", "https://ikarus3dmodels.vercel.app");
-  res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
-  res.header("Access-Control-Allow-Headers", "Content-Type, Authorization");
-  res.header("Access-Control-Allow-Credentials", "true");
-
-  if (req.method === "OPTIONS") {
-    return res.sendStatus(204);
-  }
-
-  next();
-});
 
 // ✅ Firebase Setup
 const firebaseConfig = {
